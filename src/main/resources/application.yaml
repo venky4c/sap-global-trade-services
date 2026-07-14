@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: kstream
+
+kafka:
+  streams:
+    application-id: word-count-input
+    bootstrap-servers: kafka-962173a-venky4c-74a1.j.aivencloud.com:21341
+    default-key-serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+    default-value-serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+
+
+      # --- Add these security properties ---
+    security-protocol: "SASL_SSL"
+    sasl-mechanism: "SCRAM-SHA-256"
+    ssl-endpoint-identification-algorithm: ""
+    ssl-truststore-type: "jks"
+    truststore-location: "D:/forGit/kafka/global-trade-service/kstream/src/main/resources/client.truststore.jks"
+    sasl-username: "avnadmin"
+    #default-topic-config-retention-ms: 604800000 # 7 days in milliseconds
