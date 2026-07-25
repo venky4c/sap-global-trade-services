@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org",
+  "title": "SapGtsMaterial",
+  "type": "object",
+  "required": ["schemaVersion", "eventType", "eventId", "data"],
+  "properties": {
+    "schemaVersion": { "type": "string" },
+    "eventType": { "type": "string" },
+    "eventId": { "type": "string" },
+    "eventTimestamp": { "type": "string" },
+    "data": {
+      "type": "object",
+      "required": ["materialNumber"],
+      "properties": {
+        "materialNumber": { "type": "string" }
+      }
+    }
+  }
+}

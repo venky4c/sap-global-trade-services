@@ -1,36 +1,47 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '4.1.0'
-    id 'io.spring.dependency-management' version '1.1.7'
+    id 'org.springframework.boot' version '3.3.2'
+    id 'io.spring.dependency-management' version '1.1.6'
 }
 
-group = 'com.venky.demos'
-version = '0.0.1-SNAPSHOT'
-description = 'kstream'
+group = 'com.stream'
+version = '1.0.0'
 
 java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
-    }
+    sourceCompatibility = '21'
 }
 
 repositories {
+    // Only use standard Maven Central - no extra external networks required
     mavenCentral()
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-kafka'
-    // Source: https://mvnrepository.com/artifact/org.apache.kafka/kafka-streams
-    implementation 'org.apache.kafka:kafka-streams:4.1.0'
-    implementation 'jakarta.annotation:jakarta.annotation-api:2.1.1' // Added for PostConstruct and PreDestroy
-    compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    annotationProcessor 'org.projectlombok:lombok'
-    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-    testImplementation 'org.springframework.boot:spring-boot-starter-kafka-test'
-    testCompileOnly 'org.projectlombok:lombok'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    testAnnotationProcessor 'org.projectlombok:lombok'
+    // Spring Boot Core & Web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    // Native Apache Kafka & Kafka Streams
+    implementation 'org.springframework.kafka:spring-kafka'
+    implementation 'org.apache.kafka:kafka-streams'
+
+    // Industry standard Open-Source JSON Schema Validator (from Maven Central)
+    implementation 'com.networknt:json-schema-validator:1.4.0'
+
+    // JSON Manipulation (Required by MessageTransformationService)
+    implementation 'org.json:json:20240303'
+
+    // Jackson for Model mapping
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+    compileOnly 'org.projectlombok:lombok:1.18.32'
+    annotationProcessor 'org.projectlombok:lombok:1.18.32'
+    testCompileOnly 'org.projectlombok:lombok:1.18.32'
+
+    // Testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
+    testImplementation 'org.apache.kafka:kafka-streams-test-utils'
 }
 
 tasks.named('test') {
