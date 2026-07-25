@@ -1,6 +1,7 @@
 
 ## 🚀 Enterprise SAP-GTS Data Migration Pipeline (Kafka Streams)
 
+
 A battle-hardened, real-time data migration pipeline built to ingest complex, multi-nested SAP Material Master records, transform legacy dates/arrays into modern data formats, validate payload schemas natively, and handle edge-case failures without breaking stream topologies.
 Built specifically to operate within cloud infrastructure constraints (such as a 5-topic ceiling on multi-tenant clusters), this project demonstrates an advanced architectural shift from traditional heavy, stateful streaming models to a lightweight, highly resilient stateless event-driven pattern.
 ------------------------------
