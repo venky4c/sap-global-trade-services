@@ -1,37 +1,45 @@
-HELP.md
-.gradle
+# =========================================================================
+# 🔒 PROJECT CRYPTOGRAPHY & SECURITY KEYS (CRITICAL)
+# =========================================================================
+# Never allow your private Aiven cluster binary truststores into source control
+*.jks
+*.pem
+*.crt
+*.key
+*.p12
+*.properties.local
+application-local-secrets.properties
+
+# =========================================================================
+# 🍃 SPRING BOOT RUNTIME ENVIRONMENTAL CACHES
+# =========================================================================
+# Excludes local run caches and background process metadata logs
+.env
+.env.local
+*.log
+/logs/
 build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
 bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+out/
 
-### IntelliJ IDEA ###
-.idea
+# =========================================================================
+# 🐘 GRADLE BUILD ENGINE DIRECTORIES
+# =========================================================================
+# Hides local build artifacts and fileChange lock binaries (.gradle/last-build.bin)
+.gradle/
+/.gradle/*
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# =========================================================================
+# 💻 INTELIJ IDEA & ECLIPSE SYSTEM ARTIFACTS
+# =========================================================================
+# Hides local workspace personalization setups
+.idea/
 *.iws
 *.iml
 *.ipr
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
-.vscode/
+.classpath
+.project
+.settings/
+.factorypath
