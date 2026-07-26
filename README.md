@@ -85,3 +85,37 @@ Launch the application context locally on your laptop:
 
 ./gradlew bootRun
 
+## 4. Response from aiven console under topics
+{
+schemaVersion:
+1.0
+eventType:
+MaterialCreated
+eventId:
+evt_9876543210_abc
+eventTimestamp:
+2026-07-25T18:05:23Z
+data:
+
+{
+materialNumber:
+MAT-99042-X
+baseUnitOfMeasure:
+PC
+industrySector:
+M
+materialType:
+ROH
+descriptions:
+
+[ ... ] 2 items
+crossPlantStatus:
+01
+gtsAttributes:
+
+{ ... } 5 items
+plantData:
+
+[ ... ] 1 items
+}
+}

@@ -66,7 +66,7 @@ public class SapGtsMaterialStreamProcessor {
 
                 // 3. Execute data transformation mappings
                 JSONObject transformedJson = messageTransformationService.transformMessage(rawJson);
-                String transformedValueStr = transformedJson.toString();
+                String transformedValueStr = transformedJson.toString(4);
 
                 // 4. Validate structures against your open-source Networknt schemas
                 localSchemaValidationService.validateAndConvert(transformedValueStr, dataTopic);
@@ -85,7 +85,10 @@ public class SapGtsMaterialStreamProcessor {
                     errorEnvelope.put("status", "ERROR");
                     errorEnvelope.put("stageCode", "INT-ERROR");
 
-                    kafkaProducerService.sendToErrorTopic(resolvedKey, value, errorEnvelope.toString());
+                    // FIX: Format your dead letter logs with an identical 4-space indentation layout
+                    String formattedErrorStr = errorEnvelope.toString(4);
+
+                    kafkaProducerService.sendToErrorTopic(resolvedKey, value, formattedErrorStr);
                 } catch (Exception fatalEx) {
                     log.error("Fatal routing path exception crash. Triggering hard backup strategy sink", fatalEx);
                     kafkaProducerService.sendToErrorTopicFallback(resolvedKey, value);

@@ -30,27 +30,22 @@ public class KafkaProducerConfig {
     public ProducerFactory<String, String> standardProducerFactory() {
         Map<String, Object> configProps = new HashMap<>();
 
-        // Target Routing Address
         configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, streamsProperties.getBootstrapServers());
-
-        // Serializers for text formats
         configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 
-        // SCRAM-SHA-256 Network Security Protocol Parameters
         configProps.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, streamsProperties.getSecurityProtocol());
         configProps.put(SaslConfigs.SASL_MECHANISM, streamsProperties.getSaslMechanism());
 
-        // Format JAAS Login Module Configuration String
         String jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";";
         configProps.put(SaslConfigs.SASL_JAAS_CONFIG, String.format(jaasTemplate, streamsProperties.getSaslUsername(), streamsProperties.getSaslPassword()));
 
-        // Truststore settings for explicit cloud cluster validation
+        //Inject your secure truststore configuration parameters explicitly here
         configProps.put("ssl.truststore.location", streamsProperties.getTruststoreLocation());
         configProps.put("ssl.truststore.type", "jks");
+        configProps.put("ssl.truststore.password", streamsProperties.getSslTruststorePassword());
         configProps.put("ssl.endpoint.identification.algorithm", streamsProperties.getSslEndpointIdentificationAlgorithm());
 
-        // Idempotency settings for high-value data migration pipelines
         configProps.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, true);
         configProps.put(ProducerConfig.ACKS_CONFIG, "all");
         configProps.put(ProducerConfig.RETRIES_CONFIG, 3);

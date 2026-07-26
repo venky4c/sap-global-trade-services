@@ -1,0 +1,74 @@
+{
+  eventId:
+  evt_9876543210_abc
+  schemaVersion:
+  1.0
+  data:
+
+  {
+    plantData:
+
+    [
+      0:
+
+      {
+        transportationGroup:
+        0001
+        plant:
+        1000
+        loadingGroup:
+        0001
+        profitCenter:
+        PC_METALS
+      }
+    ]
+    industrySector:
+    M
+    materialNumber:
+    MAT-99042-X
+    baseUnitOfMeasure:
+    PC
+    materialType:
+    ROH
+    crossPlantStatus:
+    01
+    descriptions:
+
+    [
+      0:
+
+      {
+        language:
+        EN
+        text:
+        High-Tensile Steel Alloy Rod 15mm
+      }
+      1:
+
+      {
+        language:
+        DE
+        text:
+        Hochfester Stahllegierungsstab 15mm
+      }
+    ]
+    gtsAttributes:
+
+    {
+      alNumber:
+      3A225
+      commodityCode:
+      72283020
+      exportControlClassificationNumber:
+      1A002
+      countryOfOrigin:
+      DE
+      casNumber:
+      7439-89-6
+    }
+  }
+  eventType:
+  MaterialCreated
+  eventTimestamp:
+  2026-07-25T18:05:23Z
+}

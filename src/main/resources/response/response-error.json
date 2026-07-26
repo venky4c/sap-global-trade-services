@@ -1,0 +1,8 @@
+{
+  errorDescription:
+  Schema validation failed: $: required property 'data' not found;
+  stageCode:
+  INT-ERROR
+  status:
+  ERROR
+}
