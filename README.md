@@ -1,12 +1,13 @@
 # 🚀 Enterprise SAP-GTS Data Migration Pipeline (Kafka Streams)
 
-![SAP GTS to Kafka Architecture Flow](docs/assets/kafka-architecture.png)
+![SAP GTS to Kafka Architecture Flow](src/main/resources/assets/image_46af1fd4.png)
 
-[![Java 21](https://shields.io)](https://openjdk.org)
-[![Kafka Streams](https://shields.io)](https://apache.org)
-[![Spring Boot](https://shields.io)](https://spring.io)
 
-A production-ready data migration pipeline that ingests raw, nested SAP GTS Material Master records, transforms legacy formats, validates contracts natively in memory, and routes clean data payloads down into an active cloud-managed infrastructure.
+
+A production-ready data migration pipeline that 
+* ingests raw, nested SAP GTS Material Master records, 
+* transforms legacy formats, validates contracts natively in memory, 
+* and routes clean data payloads down into an active cloud-managed infrastructure.
 
 ---
 
