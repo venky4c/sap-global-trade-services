@@ -75,8 +75,9 @@ http://localhost:8080/api/kafka/publish
 * **S - Single Responsibility Principle (SRP)**:
   * `MessageTransformationService` modifies only business string payloads. Review the data mapping algorithm inside [MessageTransformationService.java](./src/main/java/com/venky/demos/kstream/service/MessageTransformationService.java).
   * `LocalSchemaValidationService` asserts only document structure validity. Review the contract parsing engine logic inside [LocalSchemaValidationService.java](./src/main/java/com/venky/demos/kstream/service/LocalSchemaValidationService.java).
-* **O - Open-Closed Principle (OCP)**: Adding a new data format conversion rule requires modifications solely within the mapping service boundaries without disrupting the overarching streaming architecture graph.
-* **D - Dependency Inversion Principle (DIP)**: Streaming nodes depend directly on decoupled spring service interfaces rather than binding hardcoded components directly inside execution loops.
+* **O - Open-Closed Principle (OCP)**: Adding a new data format conversion rule requires modifications solely within the mapping service boundaries without disrupting the overarching streaming architecture graph. See the isolation layer inside [MessageTransformationService.java](./src/main/java/com/venky/demos/kstream/service/MessageTransformationService.java).
+* **D - Dependency Inversion Principle (DIP)**: Streaming nodes depend directly on decoupled spring service interfaces and configuration wrappers rather than binding hardcoded components directly inside execution loops. See the client abstraction model inside [KafkaClientConfig.java](./src/main/java/com/venky/demos/kstream/config/KafkaClientConfig.java).
+
 
 ## 3. Functional Java Core & Stream Features Used
 
