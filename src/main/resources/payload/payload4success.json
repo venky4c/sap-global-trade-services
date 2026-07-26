@@ -1,19 +1,38 @@
 {
-  "$schema": "http://json-schema.org",
-  "title": "SapGtsMaterial",
-  "type": "object",
-  "required": ["schemaVersion", "eventType", "eventId", "data"],
-  "properties": {
-    "schemaVersion": { "type": "string" },
-    "eventType": { "type": "string" },
-    "eventId": { "type": "string" },
-    "eventTimestamp": { "type": "string" },
-    "data": {
-      "type": "object",
-      "required": ["materialNumber"],
-      "properties": {
-        "materialNumber": { "type": "string" }
+  "schemaVersion": "1.0",
+  "eventType": "MaterialCreated",
+  "eventId": "evt_9876543210_abc",
+  "eventTimestamp": "2026-07-25T18:05:23Z",
+  "data": {
+    "materialNumber": "MAT-99042-X",
+    "baseUnitOfMeasure": "PC",
+    "industrySector": "M",
+    "materialType": "ROH",
+    "descriptions": [
+      {
+        "language": "EN",
+        "text": "High-Tensile Steel Alloy Rod 15mm"
+      },
+      {
+        "language": "DE",
+        "text": "Hochfester Stahllegierungsstab 15mm"
       }
-    }
+    ],
+    "crossPlantStatus": "01",
+    "gtsAttributes": {
+      "commodityCode": "72283020",
+      "exportControlClassificationNumber": "1A002",
+      "countryOfOrigin": "DE",
+      "casNumber": "7439-89-6",
+      "alNumber": "3A225"
+    },
+    "plantData": [
+      {
+        "plant": "1000",
+        "loadingGroup": "0001",
+        "transportationGroup": "0001",
+        "profitCenter": "PC_METALS"
+      }
+    ]
   }
 }
